@@ -2,7 +2,8 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #f0f2f5;
+    background: url('/images/fondo1.png') no-repeat center center fixed; /* Imagen de fondo */
+    background-size: cover; /* Ajusta la imagen para cubrir el área del fondo */
     color: #333;
     display: flex;
     flex-direction: column;
@@ -11,7 +12,7 @@ body {
 
 /* Encabezado */
 header {
-    background-color: #222;
+    background-color: rgba(34, 34, 34, 0.8); /* Fondo oscuro con transparencia */
     color: white;
     text-align: center;
     padding: 20px;
@@ -36,6 +37,11 @@ form {
     width: 100%;
     max-width: 500px;
     margin-bottom: 40px;
+}
+
+/* Efecto hover en formularios y botones */
+form:hover, button:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
 form select, form button {
@@ -94,15 +100,10 @@ tfoot tr {
 
 /* Footer */
 footer {
-    background-color: #222;
+    background-color: rgba(34, 34, 34, 0.8); /* Fondo oscuro con transparencia */
     color: white;
     text-align: center;
     padding: 10px;
     position: relative;
     width: 100%;
-}
-
-/* Margen para el contenido del footer */
-body > footer {
-    margin-top: auto;
 }
