@@ -1,41 +1,64 @@
-<h1 class="text-center mb-4">Venta de Productos</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App de Venta de Productos</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
 
-<!-- Formulario de productos -->
-<form action="/agregar" method="POST" class="mb-4">
-    <div class="mb-3">
-        <label for="producto" class="form-label">Seleccionar Producto:</label>
-        <select name="productoId" class="form-select" id="producto">
+<header>
+    Gestión de Ventas
+</header>
+
+<main>
+    <h1 class="text-center">Venta de Productos</h1>
+
+    <!-- Formulario de productos -->
+    <form action="/agregar" method="POST">
+        <label for="producto">Seleccionar Producto:</label>
+        <select name="productoId" id="producto">
             <% productos.forEach(producto => { %>
                 <option value="<%= producto.id %>">
                     <%= producto.nombre %> - $<%= producto.precio %> (Stock: <%= producto.stock %>)
                 </option>
             <% }); %>
         </select>
-    </div>
-    <button type="submit" class="btn btn-primary">Agregar Producto</button>
-</form>
+        <button type="submit">Agregar Producto</button>
+    </form>
 
-<!-- Tabla de productos en la venta -->
-<h2 class="text-center mb-4">Productos en la Venta</h2>
-<table class="table table-striped table-bordered">
-    <thead class="table-dark">
-    <tr>
-        <th>Nombre</th>
-        <th>Precio</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% venta.forEach(producto => { %>
+    <!-- Tabla de productos en la venta -->
+    <h2 class="text-center">Productos en la Venta</h2>
+    <table>
+        <thead>
         <tr>
-            <td><%= producto.nombre %></td>
-            <td>$<%= producto.precio %></td>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
         </tr>
-    <% }); %>
-    </tbody>
-    <tfoot>
-    <tr class="table-info">
-        <td>Total</td>
-        <td>$<%= total %></td>
-    </tr>
-    </tfoot>
-</table>
+        </thead>
+        <tbody>
+        <% venta.forEach(producto => { %>
+            <tr>
+                <td><%= producto.nombre %></td>
+                <td>$<%= producto.precio %></td>
+                <td><%= producto.cantidad %></td>
+            </tr>
+        <% }); %>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="2">Total</td>
+            <td>$<%= total %></td>
+        </tr>
+        </tfoot>
+    </table>
+</main>
+
+<footer>
+    App de venta de productos © 2024
+</footer>
+
+</body>
+</html>
